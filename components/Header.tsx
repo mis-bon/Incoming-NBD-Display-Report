@@ -45,13 +45,8 @@ export const Header: React.FC<HeaderProps> = ({ overallConversionRatio, remainin
     <header className="flex flex-col sm:flex-row justify-between items-center mb-4 flex-shrink-0 w-full">
       {/* Left Group */}
       <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 lg:gap-8 mb-4 sm:mb-0">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold shrink-0">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
-                Incoming-NBD&nbsp;
-            </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-white to-green-600">
-                INDIA
-            </span>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 shrink-0">
+            Incoming-NBD INDIA
         </h1>
         <div className="flex items-center gap-4">
             <StatCard 
