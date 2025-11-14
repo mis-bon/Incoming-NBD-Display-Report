@@ -42,10 +42,10 @@ export const Header: React.FC<HeaderProps> = ({ overallConversionRatio, remainin
   const { date, time } = useDateTime();
 
   return (
-    <header className="flex flex-col sm:flex-row justify-between items-center mb-4 flex-shrink-0 w-full">
+    <header className="flex flex-col sm:flex-row items-center flex-wrap gap-6 mb-4 w-full">
       {/* Left Group */}
-      <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 lg:gap-8 mb-4 sm:mb-0">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold shrink-0">
+      <div className="flex-grow flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 lg:gap-8">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
                 Incoming-NBD&nbsp;
             </span>
@@ -53,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({ overallConversionRatio, remainin
                 INDIA
             </span>
         </h1>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center flex-wrap justify-center gap-4">
             <StatCard 
               title="Overall Conversion"
               value={`${overallConversionRatio.toFixed(2)}%`}
