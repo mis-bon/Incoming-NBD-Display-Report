@@ -17,20 +17,20 @@ const StatCard: React.FC<{
   return (
     <div 
       className={`
-        w-64 transform -translate-y-1 
+        min-w-max transform -translate-y-1 
         rounded-xl bg-gray-900/50 backdrop-blur-lg border-t-2 ${borderColor} 
-        p-4 shadow-2xl ${shadowColor}
+        p-2 sm:p-3 shadow-2xl ${shadowColor}
       `}
     >
-      <div className="flex justify-between items-baseline mb-2">
-        <p className="text-sm text-gray-300 whitespace-nowrap">{title}</p>
-        <p className={`text-2xl font-bold bg-clip-text text-transparent ${gradient}`}>
+      <div className="flex justify-between items-baseline mb-1 sm:mb-2 gap-2 sm:gap-4">
+        <p className="text-xs sm:text-sm text-gray-300 whitespace-nowrap">{title}</p>
+        <p className={`text-lg sm:text-2xl font-bold bg-clip-text text-transparent ${gradient}`}>
           {value}
         </p>
       </div>
-      <div className="w-full bg-black/30 rounded-full h-1.5 overflow-hidden">
+      <div className="w-full bg-black/30 rounded-full h-1 sm:h-1.5 overflow-hidden">
         <div 
-          className={`h-1.5 rounded-full ${gradient}`}
+          className={`h-1 sm:h-1.5 rounded-full ${gradient}`}
           style={{ width: `${barPercentage}%` }}
         ></div>
       </div>
@@ -42,10 +42,10 @@ export const Header: React.FC<HeaderProps> = ({ overallConversionRatio, remainin
   const { date, time } = useDateTime();
 
   return (
-    <header className="flex flex-col sm:flex-row items-center flex-wrap gap-6 mb-4 w-full">
-      {/* Left Group */}
-      <div className="flex-grow flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 lg:gap-8">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+    <header className="flex items-center w-full gap-2 sm:gap-4 mb-4 flex-nowrap">
+      {/* Left: Title */}
+      <div className="flex-shrink-0">
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold whitespace-nowrap">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
                 Incoming-NBD&nbsp;
             </span>
@@ -53,7 +53,10 @@ export const Header: React.FC<HeaderProps> = ({ overallConversionRatio, remainin
                 INDIA
             </span>
         </h1>
-        <div className="flex items-center flex-wrap justify-center gap-4">
+      </div>
+
+      {/* Center: Stat Cards */}
+      <div className="flex-grow flex items-center justify-center gap-2 sm:gap-4">
             <StatCard 
               title="Overall Conversion"
               value={`${overallConversionRatio.toFixed(2)}%`}
@@ -70,13 +73,14 @@ export const Header: React.FC<HeaderProps> = ({ overallConversionRatio, remainin
               borderColor="border-amber-400"
               shadowColor="shadow-[0_0_20px_theme(colors.amber.500/0.4)]"
             />
-        </div>
       </div>
 
-      {/* Right Group */}
-      <div className="text-right p-3 rounded-xl bg-gray-800/60 backdrop-blur-lg border border-white/10 shadow-lg shrink-0">
-        <p className="text-xl md:text-2xl font-semibold text-white tracking-wider">{time}</p>
-        <p className="text-sm md:text-base text-gray-300">{date}</p>
+      {/* Right: Date & Time */}
+      <div className="flex-shrink-0">
+         <div className="text-right p-2 sm:p-3 rounded-xl bg-gray-800/60 backdrop-blur-lg border border-white/10 shadow-lg">
+            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-white tracking-wider whitespace-nowrap">{time}</p>
+            <p className="text-xs sm:text-sm md:text-base text-gray-300 whitespace-nowrap">{date}</p>
+        </div>
       </div>
     </header>
   );
